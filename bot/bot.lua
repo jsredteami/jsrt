@@ -47,10 +47,10 @@ function on_binlog_replay_end()
   load_plugins()
 end
 
-function msg_valid(msg)
-  -- Don't process outgoing messages
-  if msg.out then
-    print('\27[36mNot valid: msg from us\27[39m')
+--if msg.from.id == our_id then
+   — print('\27[36mNot valid: Msg from our id\27[39m')
+    —return false
+  —end
     return true
   end
 
@@ -73,10 +73,10 @@ function msg_valid(msg)
   if not msg.from.id then
     print('\27[36mNot valid: From id not provided\27[39m')
     return false
-  end
-
-  if msg.from.id == our_id then
-    print('\27[36mNot valid: Msg from our id\27[39m')
+ —if msg.from.id == our_id then
+   — print('\27[36mNot valid: Msg from our id\27[39m')
+  —  return false
+  —end
     return false
   end
 
